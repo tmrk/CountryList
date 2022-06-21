@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
 
+@media only screen and (max-width: 600px) {
+  .fieldselect {
+    border-radius: 0!important;
+
+    .tools li {
+      padding: 3ch 0 !important;
+    }
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +22,6 @@ html {
 
 body {
   height: 100%;
-  padding-top: 30px;
   font-family: 'Fira Code', monospace;
   font-size: 16px;
   font-weight: 500;
@@ -21,6 +30,7 @@ body {
 }
 
 .container {
+  padding: 30px 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -94,9 +104,18 @@ body {
     }
   }
 
+  .comment {
+    padding: 0 2ch;
+    color: rgba(255,255,255,0.1);
+    line-height: 22px;
+    display: block;
+  }
+
   .bracket {
     padding: 0 2ch;
     color: green;
+    line-height: 22px;
+    display: block;
   }
 
   .fields {

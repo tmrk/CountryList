@@ -8,7 +8,6 @@ import { ReactComponent as FileDownload } from './assets/file_download.svg';
 
 const jsonAddress = 'https://gist.githubusercontent.com/tmrk/3ba1cc679e9f655143593524a203b7e2/raw/40436639265c4b85be9c1d886537432b39b71b4d/countries.json';
 
-
 const FieldOption = (props) => {
   const {field, fields, setFields, countryValue, last} = props;
   const valueType = countryValue ? typeof countryValue : 'undefined';
@@ -85,6 +84,7 @@ const FieldSelect = (props) => {
           <span>Random country</span>
         </li>
       </ul>
+      <span className='comment'>// Example country:</span>
       <span className='bracket'>&#123;</span>
       <ul className='fields'>
         {fields.length ? 
