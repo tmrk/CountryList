@@ -13,7 +13,18 @@ const RegionSelect = (props) => {
           regions.map((region, index) => {
 
             const handleClick = () => {
-              region.excluded = !region.excluded;
+              const toggleRegions = (thisRegion, bool) => {
+                thisRegion.excluded = bool;
+                if (thisRegion.comprises) for (let i = 0; i < thisRegion.comprises.length; i++) {
+                  const subM49code = thisRegion.comprises[i];
+                  for (let j = 0; j < regions.length; j++) {
+                    if (regions[j].m49code === subM49code) {
+                      toggleRegions(regions[j], bool);
+                    }
+                  }
+                }
+              };
+              toggleRegions(region, !region.excluded);              
               setRegions([...regions]);
               localStorage.setItem('regions', JSON.stringify(regions));
             }
