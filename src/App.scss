@@ -77,6 +77,46 @@ main {
       text-align: center;
       text-decoration: underline;
     }
+
+    ul.checklist {
+      li {
+        padding: 0.5ch 1ch;
+        display: flex;
+        line-height: 20px;
+        cursor: pointer;
+
+        .checkbox {
+          width: 2ch;
+          margin: 0 1ch 0 0;
+          background: rgba(255,255,255,0.1);
+          display: inline-block;
+          border-radius: 3px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex: none;
+
+          svg {
+            width: 100%;
+            height: 100%;
+
+            path {
+              fill: rgba(255,255,255,0.4)
+            }
+          }
+        }
+
+        &:hover {
+          background: rgba(255,255,255,0.1);
+        }
+
+        &.excluded {
+          > * {
+            color: rgba(255,255,255,0.1) !important;
+          }
+        }
+      }
+    }
   }
 
   .regionselect {
@@ -150,45 +190,10 @@ main {
       display: block;
     }
 
-    .fields {
+    .checklist {
       padding: 1px 2ch;
 
       li {
-        padding: 0.5ch 1ch;
-        display: flex;
-        line-height: 20px;
-        cursor: pointer;
-
-        .checkbox {
-          width: 2ch;
-          margin: 0 1ch 0 0;
-          background: rgba(255,255,255,0.1);
-          display: inline-block;
-          border-radius: 3px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex: none;
-
-          svg {
-            width: 100%;
-            height: 100%;
-
-            path {
-              fill: rgba(255,255,255,0.4)
-            }
-          }
-        }
-
-        &:hover {
-          background: rgba(255,255,255,0.1);
-        }
-
-        &.excluded {
-          > * {
-            color: rgba(255,255,255,0.1) !important;
-          }
-        }
 
         .key,
         .value {

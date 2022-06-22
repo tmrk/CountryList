@@ -1,8 +1,12 @@
 import { ReactComponent as Checkmark } from '../assets/check.svg';
 
 const FieldOption = (props) => {
-  const {field, fields, setFields, countryValue, last} = props;
-  const valueType = countryValue ? typeof countryValue : 'undefined';
+  const {field, fields, setFields, last} = props;
+  const valueType = props.countryValue ? typeof props.countryValue : 'undefined';
+
+  const countryValue = Array.isArray(props.countryValue) ? 
+    '[' + props.countryValue.join(', ') + ']'
+    : props.countryValue;
 
   const handleClick = () => {
     field.excluded = !field.excluded;

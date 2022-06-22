@@ -50,7 +50,7 @@ const FieldSelect = (props) => {
       </ul>
       <span className='comment'>// Example country:</span>
       <span className='bracket'>&#123;</span>
-      <ul className='fields'>
+      <ul className='fields checklist'>
         {fields.length ? 
           fields.map((field, index) => 
           <FieldOption 
