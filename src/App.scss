@@ -51,140 +51,173 @@ body {
   }
 }
 
-.fieldselect {
+main {
   $border-radius: 20px;
-  
-  width: 600px;  
-  margin: 20px auto;
-  background: rgba(255,255,255,0.1);
-  border-radius: $border-radius;
-  font-family: 'Fira Code', monospace;
-  overflow-x: hidden;
-  white-space: nowrap;
+  $boxwidth: 600px;
 
-  .tools {
-    display: flex;
-    border-top-left-radius: $border-radius;
-    border-top-right-radius: $border-radius;
-    user-select: none;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
 
-    li {
-      padding: 0.5ch 0;
-      text-transform: uppercase;
-      flex-grow: 1;
-      display: flex;
-      gap: 1ch;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-  
-      span {
-        color: rgba(255,255,255,0.4);
-      }
+  @media (max-width: 1020px) { & { flex-direction: column; } }
 
-      svg {
-        
-        path {
-          fill: rgba(255,255,255,0.4);
-        }
-      }
+  > div {
+    width: $boxwidth;  
+    margin: 20px auto;
+    background: rgba(255,255,255,0.1);
+    border-radius: $border-radius;
+    font-family: 'Fira Code', monospace;
+    overflow-x: hidden;
+    white-space: nowrap;
 
-      &:hover {
-        background: rgba(255,255,255,0.4);
-        color: #fff;
-
-        span { color: #fff; }
-        svg path { fill: #fff; }
-      }
-
-      &.download:hover {
-        background: green;
-      }
-
+    h2 {
+      padding: 0 20px;
+      font-weight: 600;
+      text-align: center;
+      text-decoration: underline;
     }
   }
 
-  .comment {
-    padding: 0 2ch;
-    color: rgba(255,255,255,0.1);
-    line-height: 22px;
-    display: block;
+  .regionselect {
+    width: 400px;
+
+    ul {
+      padding: 0 2ch;
+
+      li {
+        padding: 0.5ch 1ch;
+        line-height: 20px;
+      }
+    }
   }
 
-  .bracket {
-    padding: 0 2ch;
-    color: green;
-    line-height: 22px;
-    display: block;
-  }
+  .fieldselect {    
 
-  .fields {
-    padding: 1px 2ch;
-
-    li {
-      padding: 0.5ch 1ch;
+    .tools {
       display: flex;
-      line-height: 20px;
-      cursor: pointer;
+      border-top-left-radius: $border-radius;
+      border-top-right-radius: $border-radius;
+      user-select: none;
 
-      .checkbox {
-        width: 2ch;
-        margin: 0 1ch 0 0;
-        background: rgba(255,255,255,0.1);
-        display: inline-block;
-        border-radius: 3px;
+      li {
+        padding: 0.5ch 0;
+        text-transform: uppercase;
+        flex-grow: 1;
         display: flex;
+        gap: 1ch;
         justify-content: center;
         align-items: center;
-        flex: none;
+        cursor: pointer;
+    
+        span {
+          color: rgba(255,255,255,0.4);
+        }
 
         svg {
-          width: 100%;
-          height: 100%;
-
+          
           path {
-            fill: rgba(255,255,255,0.4)
+            fill: rgba(255,255,255,0.4);
           }
         }
-      }
 
-      &:hover {
-        background: rgba(255,255,255,0.1);
-      }
+        &:hover {
+          background: rgba(255,255,255,0.4);
+          color: #fff;
 
-      &.excluded {
-        > * {
-          color: rgba(255,255,255,0.1) !important;
+          span { color: #fff; }
+          svg path { fill: #fff; }
         }
-      }
 
-      .key,
-      .value {
-        
-        &.string {
-          color: greenyellow;
+        &.download:hover {
+          background: green;
         }
-  
-        &.boolean {
-          color: red;
+
+      }
+    }
+
+    .comment {
+      padding: 0 2ch;
+      color: rgba(255,255,255,0.1);
+      line-height: 22px;
+      display: block;
+    }
+
+    .bracket {
+      padding: 0 2ch;
+      color: green;
+      line-height: 22px;
+      display: block;
+    }
+
+    .fields {
+      padding: 1px 2ch;
+
+      li {
+        padding: 0.5ch 1ch;
+        display: flex;
+        line-height: 20px;
+        cursor: pointer;
+
+        .checkbox {
+          width: 2ch;
+          margin: 0 1ch 0 0;
+          background: rgba(255,255,255,0.1);
+          display: inline-block;
+          border-radius: 3px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex: none;
+
+          svg {
+            width: 100%;
+            height: 100%;
+
+            path {
+              fill: rgba(255,255,255,0.4)
+            }
+          }
         }
-  
-        &.undefined {
-          color: grey;
+
+        &:hover {
+          background: rgba(255,255,255,0.1);
         }
-  
-        &.number {
-          color: red;
+
+        &.excluded {
+          > * {
+            color: rgba(255,255,255,0.1) !important;
+          }
         }
-  
-        &.comma {
+
+        .key,
+        .value {
           
+          &.string {
+            color: greenyellow;
+          }
+    
+          &.boolean {
+            color: red;
+          }
+    
+          &.undefined {
+            color: grey;
+          }
+    
+          &.number {
+            color: red;
+          }
+    
+          &.comma {
+            
+          }
+    
         }
-  
-      }
 
-      .colon {
-        color: yellow;
+        .colon {
+          color: yellow;
+        }
       }
     }
   }
