@@ -1,4 +1,4 @@
-import { ReactComponent as Checkmark } from '../assets/check.svg';
+import { Check } from '@mui/icons-material';
 
 const RegionSelect = (props) => {
 
@@ -38,7 +38,7 @@ const RegionSelect = (props) => {
                 className='checkbox' 
                 data-checked='true'
               >
-                {region.excluded ? '' : <Checkmark />}
+                {region.excluded ? '' : <Check />}
               </span>
               <span className="name">
                 {region.name}

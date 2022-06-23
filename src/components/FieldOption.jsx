@@ -1,12 +1,10 @@
-import { ReactComponent as Checkmark } from '../assets/check.svg';
+import { Check } from '@mui/icons-material';
 
 const FieldOption = (props) => {
   const {field, fields, setFields, last} = props;
   const valueType = props.countryValue ? typeof props.countryValue : 'undefined';
 
-  const countryValue = Array.isArray(props.countryValue) ? 
-    '[' + props.countryValue.join(', ') + ']'
-    : props.countryValue;
+  const countryValue = props.countryValue ? JSON.stringify(props.countryValue).replace(/\\/g, '') : '';
 
   const handleClick = () => {
     field.excluded = !field.excluded;
@@ -23,14 +21,12 @@ const FieldOption = (props) => {
         className='checkbox' 
         data-checked='true'
       >
-        {field.excluded ? '' : <Checkmark />}
+        {field.excluded ? '' : <Check />}
       </span>
       <span className='key'>"{field.name}"</span>
       <span className='colon'>:&nbsp;</span> 
       <span className={'value ' + valueType}>
-        {valueType === 'string' ? '"' : ''}
         {countryValue ? countryValue.toString() : 'undefined'}
-        {valueType === 'string' ? '"' : ''}
       </span>
       {last ? '' : <span className='comma'>,</span>}
     </li>

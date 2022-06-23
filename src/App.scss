@@ -81,6 +81,7 @@ main {
     ul.checklist {
       li {
         padding: 0.5ch 1ch;
+        border-radius: 4px;
         display: flex;
         line-height: 20px;
         cursor: pointer;
@@ -198,7 +199,8 @@ main {
         .key,
         .value {
           
-          &.string {
+          &.string,
+          &.object {
             color: greenyellow;
           }
     

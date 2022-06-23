@@ -89,6 +89,7 @@ function App() {
         />
         <FieldSelect 
           countries={countries}
+          regions={regions}
           fields={fields}
           setFields={setFields}
           selectedCountry={selectedCountry}
