@@ -3,16 +3,18 @@ import { SelectAll, Deselect, Refresh } from '@mui/icons-material';
 const HeaderTools = (props) => {
   
   const {fields, setFields, newSelectedCountry} = props;
+  
+  const selectAll = (all) => {
+    for (let i = 0; i < fields.length; i++)  fields[i].excluded = !all;
+    setFields([...fields]);
+    localStorage.setItem('fields', JSON.stringify(fields));
+  };
 
   return (
     <ul className='header tools'>
       <li 
         className='deselect'
-        onPointerDown={() => {
-        for (let i = 0; i < fields.length; i++)  fields[i].excluded = true;
-        setFields([...fields]);
-        localStorage.setItem('fields', JSON.stringify(fields));
-        }}
+        onPointerDown={() => selectAll(false)}
       >
         <Deselect />
         <span>Deselect all</span>
@@ -20,11 +22,7 @@ const HeaderTools = (props) => {
 
       <li 
         className='selectall'
-        onPointerDown={() => {
-        for (let i = 0; i < fields.length; i++)  fields[i].excluded = false;
-        setFields([...fields]);
-        localStorage.setItem('fields', JSON.stringify(fields));
-        }}
+        onPointerDown={() => selectAll(true)}
       >
         <SelectAll />
         <span>Select all</span>
@@ -39,7 +37,7 @@ const HeaderTools = (props) => {
       </li>
     </ul>
   );
-  
+
 };
 
 export default HeaderTools;
